@@ -1,8 +1,11 @@
 /********************************************************************************
- * @problem :  write a program to implememt factory Design Pattern
+ * @problem :  write a program to implement factory Design Pattern
  * @fileName : FactoryBusinessLogic.js
  * @Auther  : Pragati Dhakane
  *******************************************************************************/
+/** 
+ * main class is univercity
+*/
 
 class Univercity {
     constructor(id,student,rank) {
@@ -11,7 +14,9 @@ class Univercity {
         this.rank = rank;
 
     }
-
+    
+    // method is created to print data
+    
     display() {
         console.log("Type :" +this.name);
         console.log("id :" +this.id);
@@ -19,6 +24,10 @@ class Univercity {
         console.log("Rank :" +this.rank);
     }
 }
+/*
+ two child classes are defined i.e WIT & COEP
+*/
+
 class WIT extends Univercity {
     constructor(id,student,rank) {
         super(id, student, rank);

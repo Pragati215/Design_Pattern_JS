@@ -1,5 +1,5 @@
 /*******************************************************************************************************
- * @problem :  write a program to implememt factory Design Pattern
+ * @problem :  write a program to implement factory Design Pattern
  * @fileName : FactoryMain.js
  * @Auther  : Pragati Dhakane
  *******************************************************************************/
