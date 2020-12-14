@@ -1,18 +1,18 @@
- /*******************************************************************************************************
- * @problem :  write a program to implement Observer Design Pattern
- * @fileName : ObserverMain.js
- * @Auther  : Pragati D
- *******************************************************************************/
- var publisherSubscriber = {};
+/*******************************************************************************************************
+* @problem :  write a program to implement Observer Design Pattern
+* @fileName : ObserverMain.js
+* @Auther  : Pragati D
+*******************************************************************************/
+var publisherSubscriber = {};
 
 // we send in a container object which will handle the subscriptions and publishings
-(function(container) {
+(function (container) {
     // the id represents a unique subscription id to a topic
     var id = 0;
 
-    container.subscribe = function(topic, f) {
+    container.subscribe = function (topic, f) {
         if (!(topic in container)) {
-          container[topic] = [];
+            container[topic] = [];
         }
 
         container[topic].push({
@@ -23,7 +23,7 @@
         return id;
     }
 
-    container.unsubscribe = function(topic, id) {
+    container.unsubscribe = function (topic, id) {
         var subscribers = [];
         for (var subscriber of container[topic]) {
             if (subscriber.id !== id) {
@@ -33,7 +33,7 @@
         container[topic] = subscribers;
     }
 
-    container.publish = function(topic, data) {
+    container.publish = function (topic, data) {
         for (var subscriber of container[topic]) {
             /* when executing a callback, it is usually helpful to read
              the documentation to know which arguments will be
@@ -44,25 +44,25 @@
 
 })(publisherSubscriber);
 
-var subscriptionID1 = publisherSubscriber.subscribe("mouseClicked", function(data) {
+var subscriptionID1 = publisherSubscriber.subscribe("mouseClicked", function (data) {
     console.log("I am Bob's callback function for a mouse clicked event and this is my event data: " + JSON.stringify(data));
 });
 
-var subscriptionID2 = publisherSubscriber.subscribe("mouseHovered", function(data) {
+var subscriptionID2 = publisherSubscriber.subscribe("mouseHovered", function (data) {
     console.log("I am Bob's callback function for a hovered mouse event and this is my event data: " + JSON.stringify(data));
 });
 
-var subscriptionID3 = publisherSubscriber.subscribe("mouseClicked", function(data) {
+var subscriptionID3 = publisherSubscriber.subscribe("mouseClicked", function (data) {
     console.log("I am Alice's callback function for a mouse clicked event and this is my event data: " + JSON.stringify(data));
 });
 
 
-publisherSubscriber.publish("mouseClicked", {"data": "data1"});
-publisherSubscriber.publish("mouseHovered", {"data": "data2"});
+publisherSubscriber.publish("mouseClicked", { "data": "data1" });
+publisherSubscriber.publish("mouseHovered", { "data": "data2" });
 
 // we unsubscribe from an event by removing the subscription ID
 publisherSubscriber.unsubscribe("mouseClicked", subscriptionID3);
 
 // there are 2 console.logs executed
-publisherSubscriber.publish("mouseClicked", {"data": "data1"});
-publisherSubscriber.publish("mouseHovered", {"data": "data2"});
+publisherSubscriber.publish("mouseClicked", { "data": "data1" });
+publisherSubscriber.publish("mouseHovered", { "data": "data2" });
