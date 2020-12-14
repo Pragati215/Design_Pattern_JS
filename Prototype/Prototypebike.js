@@ -3,6 +3,7 @@
  * @fileName : Prototypebike.js
  * @Auther  : Pragati D
  *******************************************************************************/
+
 var Bike = function (brand) {
     this.brand = brand;
 };

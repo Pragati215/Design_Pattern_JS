@@ -1,4 +1,4 @@
-/*******************************************************************************************************
+/********************************************************************************
  * @problem :  write a program to implement Prototype Design Pattern
  * @fileName : PrototypePerson.js
  * @Auther  : Pragati D
@@ -11,8 +11,8 @@ function Person(name, age, isDeveloper) {
 }
 
 // we extend the function's prototype
-Person.prototype.writesCode = function() {
-    console.log(this.isDeveloper? "This person does write code" : "This person does not write code");
+Person.prototype.writesCode = function () {
+    console.log(this.isDeveloper ? "This person does write code" : "This person does not write code");
 }
 
 // creates a Person instance with properties & a method writesCode
